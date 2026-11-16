@@ -2,7 +2,11 @@
 
 In Grim Dawn's Steam Input mode, d-pad up and down open the Riftgate and the map but never
 cycle the highlighted loot on the ground, as they do with a native gamepad. This `dinput8.dll`
-makes the game treat those two actions as d-pad presses, so they behave as they do natively.
+makes the Riftgate and map actions cycle the loot while some is highlighted, as the native
+gamepad's d-pad does, and leaves them alone otherwise.
+
+It finds the game's own loot cycling code by its instructions rather than by address, and does
+nothing if it cannot find it, which keeps it safe across most game updates.
 
 ## Install
 
