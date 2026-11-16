@@ -1,0 +1,22 @@
+[package]
+name = "grim-dpad"
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+description = "Lets the d-pad cycle ground loot in Grim Dawn's Steam Input mode"
+
+[lib]
+name = "dinput8"
+crate-type = ["cdylib", "lib"]
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = [
+    "Win32_Foundation",
+    "Win32_System_LibraryLoader",
+    "Win32_System_SystemInformation",
+    "Win32_System_SystemServices",
+] }
+
+[profile.release]
+panic = "abort"
+strip = true
